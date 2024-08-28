@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>메이크업 실기시험 타이머</title>
+</head>
+<body class="min-h-screen flex flex-col pt-10 px-20 justify-center items-center font-sans">
+    <h1 class="text-3xl mb-5 text-center font-bold">메이크업 실기시험 타이머</h1>
+    <div class="flex justify-center items-center md:flex-row flex-col">
+        <div class="text-lg w-full md:mr-10">
+            <div class="mb-5" id="timer-container">
+                <div class="mb-5">
+                    <label for="task-select" class="block font-medium mb-2">과제 선택</label>
+                    <select class="w-full border border-gray-300 p-2 rounded-md" id="task-select" onchange="updateSubtaskOptions()">
+                        <option value="">과제를 선택하세요</option>
+                        <option value="1과제">1과제: 뷰티 메이크업</option>
+                        <option value="2과제">2과제: 시대 메이크업</option>
+                        <option value="3과제">3과제: 특수 메이크업</option>
+                        <option value="4과제">4과제: 속눈썹 연장/수염 분장</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="subtask-select" class="block font-medium mb-2">세부 항목 선택</label>
+                    <select class="w-full border border-gray-300 p-2 rounded-md" id="subtask-select" onchange="printSelectedTask()">
+                        <option value="random">랜덤으로 선택</option>
+                    </select>
+                </div>
+            
+            </div>
+            <div class="flex mb-5 justify-center space-x-4">
+                <button class="bg-gray-400 p-2 rounded-md text-white cursor-not-allowed" id="start" onclick="startTimer()" disabled>타이머 시작</button>
+                <button class="bg-yellow-500 p-2 rounded-md text-white hidden" id="pause" onclick="pauseTimer()">일시 정지</button>
+                <button class="bg-red-500 p-2 rounded-md text-white hidden" id="reset" onclick="resetTimer()">리셋</button>
+            </div>
+        
+            <h2 id="selected-task" class="text-2xl text-center font-semibold mb-5"></h2>
+            <h1 id="timer" class="text-6xl font-bold text-center md:mb-0 mb-5">00:00</h1>
+        </div>
+        <div class="w-full">
+            <img id="image" src="image/basic.png" alt="">
+        </div>
+    </div>
+
+    <!-- 알림 소리 -->
+    <audio id="alert-5min" src="audio/alert_5min.wav"></audio>
+    <audio id="alert-end" src="audio/alert_end.wav"></audio>
+
+    <script src="timer.js"></script>
+</body>
+</html>
