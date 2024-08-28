@@ -81,16 +81,6 @@ function setTimer(taskSelect) {
   printTimer();
 }
 
-function timerTest(time) {
-  timeLeft = time * 60 + 2;
-
-  printTimer()
-
-  clearInterval(timerInterval);
-  isPaused = false;
-  timerInterval = setInterval(updateTimer, 1000);
-}
-
 function startTimer() {
   clearInterval(timerInterval);
   isPaused = false;
