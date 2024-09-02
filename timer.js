@@ -109,6 +109,8 @@ function pauseTimer() {
   document.getElementById('pause').textContent = !isPaused ? "일시 정지" : "다시 시작";
 }
 
+// to do
+// 1. 오디오 크기 키우기
 function updateTimer() {
     
   if (timeLeft > 0) {
@@ -116,6 +118,10 @@ function updateTimer() {
 
     if (timeLeft === 5 * 60) {
       document.getElementById('alert-5min').play();
+    }
+
+    if (timeLeft === 1 * 60) {
+      document.getElementById('alert-1min').play();
     }
   } else {
     clearInterval(timerInterval);
